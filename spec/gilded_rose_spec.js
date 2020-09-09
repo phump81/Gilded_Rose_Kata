@@ -1,4 +1,6 @@
-var {Shop, Item} = require('../src/gilded_rose.js');
+var {Shop} = require('../src/gilded_rose.js');
+var {Item} = require('../src/item.js');
+
 describe("Gilded Rose", function() {
 
   it("normal items degrade by 1 after 1 day", function() {

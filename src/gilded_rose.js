@@ -1,10 +1,4 @@
-class Item {
-  constructor(name, sellIn, quality){
-    this.name = name;
-    this.sellIn = sellIn;
-    this.quality = quality;
-  }
-}
+var {Item} = require('../src/item.js');
 
 class Shop {
   constructor(items=[]){
@@ -69,6 +63,5 @@ class Shop {
   }
 }
 module.exports = {
-  Item,
   Shop
 }
