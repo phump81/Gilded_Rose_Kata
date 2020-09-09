@@ -34,10 +34,10 @@ describe("Gilded Rose", function() {
   })
 
   it("Sulfuras does not degrade", function() {
-    const gildedRose = new Shop([ new Item("Sulfuras, Hand of Ragnaros", 5, 5) ]);
+    const gildedRose = new Shop([ new Item("Sulfuras, Hand of Ragnaros", 0, 80) ]);
     const items = gildedRose.updateQuality();
-    expect(items[0].quality).toEqual(5);
-    expect(items[0].sellIn).toEqual(5);
+    expect(items[0].quality).toEqual(80);
+    expect(items[0].sellIn).toEqual(0);
   })
 
   it("backstage pass quality increases by 1 when sellIn is more than 10 days", function() {
@@ -65,6 +65,19 @@ describe("Gilded Rose", function() {
     const gildedRose = new Shop([ new Item("Backstage passes to a TAFKAL80ETC concert", 0, 5) ]);
     const items = gildedRose.updateQuality();
     expect(items[0].quality).toEqual(0);
+  })
+
+  it("conjured items degrade twice as fast as normal items", function() {
+    const gildedRose = new Shop([ new Item("Conjured Mana Cake", 5, 5) ]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toEqual(3);
+    expect(items[0].sellIn).toEqual(4);
+  })
+
+  it("conjured items degrade twice as fast as normal, after sellIn is 0", function() {
+    const gildedRose = new Shop([ new Item("Conjured Mana Cake", 0, 5) ]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toEqual(1);
   })
 
 });
