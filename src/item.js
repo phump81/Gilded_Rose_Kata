@@ -1,3 +1,5 @@
+'use strict';
+
 class Item {
   constructor(name, sellIn, quality){
     this.name = name;
