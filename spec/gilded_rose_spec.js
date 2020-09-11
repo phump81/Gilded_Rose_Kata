@@ -1,3 +1,5 @@
+'use strict';
+
 var {Shop} = require('../src/gilded_rose.js');
 var {Item} = require('../src/item.js');
 
