@@ -44,14 +44,14 @@ legendary item and as such its Quality is 80 and it never alters.
 
 ## To run tests
 
-* ```$ npm test```
+* ```$ npm test``` or ```$ jasmine```
 
 ## My approach
 
 * First step was to create a test suite for the existing code.
 * With all tests passing, I wrote further tests for the new requirements.
 * Implemented code to pass the tests for the new requirements.
-* Seperated the classes, and refactored the 'updateQuality' into several new methods.
+* Separated the classes, and refactored the 'updateQuality' into several new methods.
 * Checked all tests were still passing. Thankfully they were.
 * Wrote a couple of extra tests to ensure all requirements were met.
 * Created a questionable README.
