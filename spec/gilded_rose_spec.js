@@ -26,7 +26,7 @@ describe("Aged Brie", function() {
     expect(items[0].quality).toEqual(6);
     expect(items[0].sellIn).toEqual(4);
   })
-  it("the quality of an item is never more than 50", function() {
+  it("the quality of Brie is never more than 50", function() {
     const gildedRose = new Shop([ new Item("Aged Brie", 5, 50) ]);
     const items = gildedRose.updateQuality();
     expect(items[0].quality).toEqual(50);
@@ -64,6 +64,11 @@ describe("Backstage Passes", function() {
     const items = gildedRose.updateQuality();
     expect(items[0].quality).toEqual(0);
   })
+  it("the quality of a backstage pass is never more than 50", function() {
+    const gildedRose = new Shop([ new Item("Backstage passes to a TAFKAL80ETC concert", 5, 50) ]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toEqual(50);
+  })
 });
 describe("Conjured Items", function() {
   it("conjured items degrade twice as fast as normal items", function() {
@@ -76,5 +81,10 @@ describe("Conjured Items", function() {
     const gildedRose = new Shop([ new Item("Conjured Mana Cake", 0, 5) ]);
     const items = gildedRose.updateQuality();
     expect(items[0].quality).toEqual(1);
+  })
+  it("the quality of a conjured item is never negative", function() {
+    const gildedRose = new Shop([ new Item("Conjured Mana Cake", 0, 0) ]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toEqual(0);
   })
 });

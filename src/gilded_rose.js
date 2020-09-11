@@ -15,6 +15,9 @@ class Shop {
       } else if (this.items[i].name != 'Sulfuras, Hand of Ragnaros') {
         this.updateNormal(this.items[i]);
       }
+      if (this.items[i].name != 'Sulfuras, Hand of Ragnaros') {
+        this.items[i].sellIn -= 1;
+      }
     }
     return this.items;
   }
@@ -22,7 +25,6 @@ class Shop {
     if (item.quality < 50) {
       item.quality += 1;
     }
-    item.sellIn -= 1;
   }
   updatePasses(item) {
     if (item.sellIn > 10) {
@@ -34,7 +36,9 @@ class Shop {
     } else {
       item.quality = 0
     }
-    item.sellIn -= 1;
+    if (item.quality > 50){
+      item.quality = 50;
+    }
   }
   updateConjured(item) {
     if (item.sellIn > 0) {
@@ -45,7 +49,6 @@ class Shop {
     if (item.quality < 0){
       item.quality = 0;
     }
-    item.sellIn -= 1;
   }
   updateNormal(item) {
     if (item.sellIn > 0) {
@@ -56,7 +59,6 @@ class Shop {
     if (item.quality < 0){
       item.quality = 0;
     }
-    item.sellIn -= 1;
   }
 }
 module.exports = {
